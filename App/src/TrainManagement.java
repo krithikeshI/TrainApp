@@ -6,35 +6,24 @@ public class TrainManagement {
 
         System.out.println("=== Train Consist Management App ===");
 
-        // Create ArrayList for passenger bogies
-        List<String> passengerBogies = new ArrayList<>();
+        // Create a HashSet for unique bogie IDs
+        Set<String> bogieIDs = new HashSet<>();
 
-        // Adding bogies (CREATE operation)
-        System.out.println("\nAdding passenger bogies...");
-        passengerBogies.add("Sleeper");
-        passengerBogies.add("AC Chair");
-        passengerBogies.add("First Class");
+        // Adding bogie IDs (including duplicates)
+        System.out.println("\nAdding bogie IDs...");
+        bogieIDs.add("BG101");
+        bogieIDs.add("BG102");
+        bogieIDs.add("BG103");
+        bogieIDs.add("BG101"); // Duplicate
+        bogieIDs.add("BG102"); // Duplicate
 
-        // Display bogies (READ operation)
-        System.out.println("Current Passenger Bogies: " + passengerBogies);
-
-        // Remove a bogie (DELETE operation)
-        System.out.println("\nRemoving AC Chair bogie...");
-        passengerBogies.remove("AC Chair");
-
-        // Display after removal
-        System.out.println("After Removal: " + passengerBogies);
-
-        // Check existence (SEARCH operation)
-        System.out.println("\nChecking if Sleeper bogie exists...");
-        if (passengerBogies.contains("Sleeper")) {
-            System.out.println("Sleeper bogie is present in the train.");
-        } else {
-            System.out.println("Sleeper bogie is NOT present.");
+        // Display unique bogie IDs
+        System.out.println("\nUnique Bogie IDs in Train:");
+        for (String id : bogieIDs) {
+            System.out.println(id);
         }
 
-        // Final state
-        System.out.println("\nFinal Passenger Bogies: " + passengerBogies);
+        System.out.println("\nTotal unique bogies: " + bogieIDs.size());
 
         System.out.println("\nProgram continues...");
     }
